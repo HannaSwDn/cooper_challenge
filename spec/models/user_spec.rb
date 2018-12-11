@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
         it { is_expected.to validate_confirmation_of(:password) }
 
         context 'should not have an invalid email address' do
-            emails = ['@email.com', 'two@', 'threeemail.com', '.com', '@fakemail']
+            emails = ['@email.com', 'two@', 'threeemail.com', '.com', 'hello']
 
             emails.each do |email|
                 it { is_expected.not_to allow_value(email).for(:email) }
