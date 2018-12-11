@@ -5,6 +5,6 @@ Shoulda::Matchers.configure do |config|
     end
 end
 
-Rspec.configure do |config|
-    config.include(Shoulda::Mathcers::ActiveRecord, type: :model)
+RSpec.configure do |config|
+    config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end
