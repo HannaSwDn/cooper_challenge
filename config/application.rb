@@ -9,6 +9,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
+
 Bundler.require(*Rails.groups)
 
 module CooperApi
@@ -19,9 +20,9 @@ module CooperApi
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*',
-        resource '*',
-          headers: :any,
+        origins '*'
+        resource '*', 
+          headers: :any, 
           methods: %i[get post put delete],
           expose: %w(access-token expiry token-type uid client),
           max_age: 0
