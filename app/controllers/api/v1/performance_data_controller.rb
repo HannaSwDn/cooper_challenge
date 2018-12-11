@@ -12,8 +12,13 @@ class Api::V1::PerformanceDataController < ApplicationController
   end
 
   def index
-    @collection = current_api_v1_user.performance_data
-    render json: { entries: @collection }
+    # double check this if statement
+    if current_user = current_api_v1_user
+      @collection = current_api_v1_user.performance_data
+      render json: { entries: @collection }
+    else
+      return
+    end
   end
 
   private
